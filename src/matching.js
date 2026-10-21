@@ -57,12 +57,12 @@ function getFoodCategory(content) {
   const match = /^\s*¿?\s*(\p{L}[\p{L}\p{M}]*)\s*\?\s*$/u.exec(content);
   if (!match) return null;
 
-  const word = match[1].toLowerCase();
+  const word = match[1].normalize("NFD").replace(/\p{M}/gu, "").toLowerCase();
   for (const category of foodQuestions) {
     if (word === category) return category;
   }
 
-  // Admitir un error de escritura en palabras largas; en las cortas genera falsos positivos.
+  // Allow one typo in longer words; fuzzy matching short words causes false positives.
   for (const category of foodQuestions) {
     if (category.length >= 6 && isOneEditOrSwap(word, category))
       return category;
@@ -70,4 +70,4 @@ function getFoodCategory(content) {
   return null;
 }
 
-module.exports = { isPing, isGreeting, isDecir, getFoodCategory };
+export { isPing, isGreeting, isDecir, getFoodCategory };

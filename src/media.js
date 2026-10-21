@@ -14,4 +14,4 @@ const foodGifs = {
   cena: [],
 };
 
-module.exports = { greetingGifs, foodGifs };
+export { greetingGifs, foodGifs };

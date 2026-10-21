@@ -1,8 +1,9 @@
-const fs = require("node:fs/promises");
-const path = require("node:path");
-const { greetingGifs, foodGifs } = require("./src/media");
+import fs from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { greetingGifs, foodGifs } from "./src/media.js";
 
-const outputDir = path.join(__dirname, "downloaded-media");
+const outputDir = path.join(path.dirname(fileURLToPath(import.meta.url)), "downloaded-media");
 const groups = { saludo: greetingGifs, ...foodGifs };
 
 async function main() {

@@ -1,5 +1,5 @@
-const { isPing, isGreeting, isDecir, getFoodCategory } = require("./matching");
-const { greetingGifs, foodGifs } = require("./media");
+import { isPing, isGreeting, isDecir, getFoodCategory } from "./matching.js";
+import { greetingGifs, foodGifs } from "./media.js";
 
 async function handleMessage(
   message,
@@ -38,4 +38,4 @@ async function handleMessage(
   }
 }
 
-module.exports = { handleMessage };
+export { handleMessage };
