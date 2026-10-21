@@ -1,14 +1,16 @@
-const greetingGifs = [
-  "https://media.giphy.com/media/dzaUX7CAG0Ihi/giphy.gif",
-  "https://media.giphy.com/media/3pZipqyo1sqUCaA0bL/giphy.gif",
-  "https://media.giphy.com/media/ASd0Ukj0BCcGqG4LDT/giphy.gif",
-];
+const greetingGifs = ["https://media.giphy.com/media/dzaUX7CAG0Ihi/giphy.gif"];
 
 const foodGifs = {
-  mate: [],
+  mate: [
+    "https://media1.tenor.com/m/5IAmLUkf-oQAAAAd/messi-mate-eli-argentina.gif",
+    "https://media1.tenor.com/m/18Z7DY78tgMAAAAd/messi.gif",
+  ],
   desayuno: [],
   almuerzo: [],
-  merienda: [],
+  merienda: [
+    "https://media1.tenor.com/m/HxYstoqjyY0AAAAd/cardcaptor-sakura-clear-card-cerberus.gif",
+    "https://media1.tenor.com/m/V0ugGbHyzhsAAAAd/kero-cardcaptor-sakura.gif",
+  ],
   cena: [],
 };
 
