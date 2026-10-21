@@ -1,13 +1,17 @@
-const { isPing, isGreeting, isDecir } = require('./matching');
-const { greetingGifs } = require('./media');
+const { isPing, isGreeting, isDecir, getFoodCategory } = require("./matching");
+const { greetingGifs, foodGifs } = require("./media");
 
-async function handleMessage(message, random = Math.random) {
+async function handleMessage(
+  message,
+  random = Math.random,
+  foodMedia = foodGifs,
+) {
   if (message.author.bot) return;
 
   const text = message.content.toLowerCase();
 
   if (isPing(text)) {
-    await message.reply('¡Pong!');
+    await message.reply("¡Pong!");
   }
 
   if (isGreeting(text)) {
@@ -21,6 +25,16 @@ async function handleMessage(message, random = Math.random) {
   if (isDecir(text)) {
     const said = message.content.slice(7);
     await message.channel.send(`El usuario dijo: "${said}"`);
+  }
+
+  const foodCategory = getFoodCategory(message.content);
+  const isFoodQuestion = foodCategory !== null;
+  if (isFoodQuestion) {
+    const options = foodMedia[foodCategory] || [];
+    if (options.length > 0) {
+      const selected = options[Math.floor(random() * options.length)];
+      await message.reply({ files: [selected] });
+    }
   }
 }
 

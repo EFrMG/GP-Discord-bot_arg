@@ -2,8 +2,6 @@
 
 Bot de Discord con [discord.js](https://discord.js.org/).
 
-El proyecto está en una etapa inicial con el comportamiento actual en [index.js](/index.js).
-
 ## Funciones
 
 - `!ping` responde `¡Pong!`.
